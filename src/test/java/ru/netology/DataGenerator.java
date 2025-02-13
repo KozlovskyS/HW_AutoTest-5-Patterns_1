@@ -1,6 +1,7 @@
 package ru.netology;
 
 import com.github.javafaker.Faker;
+import lombok.Value;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.time.LocalDate;
@@ -43,21 +44,21 @@ public class DataGenerator {
         return faker.phoneNumber().phoneNumber();
     }
 
-//    public static class Registration {
-//        private Registration() {
-//        }
-//
-//        public static UserInfo generateUser(String locale) {
-//            // TODO: добавить логику для создания пользователя user с использованием методов generateCity(locale),
-//            // generateName(locale), generatePhone(locale)
-//            return new UserInfo(generateCity(), generateName(locale), generatePhone(locale));
-//        }
-//    }
-//
-//    @Value
-//    public static class UserInfo {
-//        String city;
-//        String name;
-//        String phone;
-//    }
+    public static class Registration {
+        private Registration() {
+        }
+
+        public static UserInfo generateUser(String locale) {
+            // TODO: добавить логику для создания пользователя user с использованием методов generateCity(locale),
+            // generateName(locale), generatePhone(locale)
+            return new UserInfo(generateCity(), generateName(locale), generatePhone(locale));
+        }
+    }
+
+    @Value
+    public static class UserInfo {
+        String city;
+        String name;
+        String phone;
+    }
 }

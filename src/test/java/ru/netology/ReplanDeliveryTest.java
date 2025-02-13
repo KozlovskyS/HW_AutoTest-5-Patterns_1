@@ -21,7 +21,7 @@ public class ReplanDeliveryTest {
     @Test
     @DisplayName("Should successful plan and replan meeting")
     void shouldSuccessfulPlanAndReplanMeeting() {
-//        var validUser = DataGenerator.Registration.generateUser("ru");
+        var validUser = DataGenerator.Registration.generateUser("ru");
         var daysToAddForFirstMeeting = 4;
         var firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
         var daysToAddForSecondMeeting = 7;
@@ -31,11 +31,11 @@ public class ReplanDeliveryTest {
         // firstMeetingDate и secondMeetingDate. Можно также вызывать методы generateCity(locale),
         // generateName(locale), generatePhone(locale) для генерации и получения в тесте соответственно города,
         // имени и номера телефона без создания пользователя в методе generateUser(String locale) в датагенераторе
-        $("[data-test-id='city'] input").setValue(DataGenerator.generateCity());
+        $("[data-test-id='city'] input").setValue(validUser.getCity());
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, HOME), Keys.BACK_SPACE);
         $("[data-test-id='date'] input").setValue(firstMeetingDate);
-        $("[data-test-id='name'] input").setValue(DataGenerator.generateName("ru"));
-        $("[data-test-id='phone'] input").setValue(DataGenerator.generatePhone("ru"));
+        $("[data-test-id='name'] input").setValue(validUser.getName());
+        $("[data-test-id='phone'] input").setValue(validUser.getPhone());
         $("[data-test-id='agreement']").click();
         $(".button span.button__content").click();
         $("[data-test-id='success-notification']")
